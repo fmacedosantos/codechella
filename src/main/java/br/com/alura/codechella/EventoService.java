@@ -24,4 +24,28 @@ public class EventoService {
                 .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND)))
                 .map(EventoDto::toDto);
     }
+
+    public Mono<EventoDto> cadastrar(EventoDto dto) {
+        return repositorio.save(dto.toEntity())
+                .map(EventoDto::toDto);
+    }
+
+    public Mono<Void> excluir(Long id) {
+        return repositorio.findById(id)
+                .flatMap(repositorio::delete);
+    }
+
+    public Mono<EventoDto> alterar(Long id, EventoDto dto) {
+        return repositorio.findById(id)
+                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND)))
+                .flatMap(eventoExistente -> {
+                    eventoExistente.setTipo(dto.tipo());
+                    eventoExistente.setNome(dto.nome());
+                    eventoExistente.setData(dto.data());
+                    eventoExistente.setDescricao(dto.descricao());
+
+                    return repositorio.save(eventoExistente);
+                })
+                .map(EventoDto::toDto);
+    }
 }
