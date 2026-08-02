@@ -1,9 +1,9 @@
 package br.com.alura.codechella.enums;
 
-public enum TipoEvento {
+public enum EventType {
     SHOW,
-    CONCERTO,
-    TEATRO,
-    PALESTRA,
+    CONCERT,
+    THEATER,
+    LECTURE,
     WORKSHOP
 }
