@@ -1,5 +1,6 @@
-package br.com.alura.codechella;
+package br.com.alura.codechella.models;
 
+import br.com.alura.codechella.enums.TipoEvento;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 

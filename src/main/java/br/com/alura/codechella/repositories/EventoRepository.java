@@ -1,5 +1,7 @@
-package br.com.alura.codechella;
+package br.com.alura.codechella.repositories;
 
+import br.com.alura.codechella.enums.TipoEvento;
+import br.com.alura.codechella.models.Evento;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import reactor.core.publisher.Flux;
 

@@ -1,5 +1,8 @@
-package br.com.alura.codechella;
+package br.com.alura.codechella.services;
 
+import br.com.alura.codechella.dtos.EventoDto;
+import br.com.alura.codechella.repositories.EventoRepository;
+import br.com.alura.codechella.enums.TipoEvento;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

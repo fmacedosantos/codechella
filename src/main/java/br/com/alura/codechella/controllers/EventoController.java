@@ -1,5 +1,7 @@
-package br.com.alura.codechella;
+package br.com.alura.codechella.controllers;
 
+import br.com.alura.codechella.dtos.EventoDto;
+import br.com.alura.codechella.services.EventoService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;

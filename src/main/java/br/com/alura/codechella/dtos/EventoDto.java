@@ -1,4 +1,7 @@
-package br.com.alura.codechella;
+package br.com.alura.codechella.dtos;
+
+import br.com.alura.codechella.enums.TipoEvento;
+import br.com.alura.codechella.models.Evento;
 
 import java.time.LocalDate;
 
