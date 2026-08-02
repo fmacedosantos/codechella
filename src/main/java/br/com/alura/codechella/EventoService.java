@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class EventoService {
-    private EventoRepository repositorio;
+    private final EventoRepository repositorio;
 
     public EventoService(EventoRepository repositorio) {
         this.repositorio = repositorio;

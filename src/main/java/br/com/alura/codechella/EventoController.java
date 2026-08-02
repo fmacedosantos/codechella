@@ -10,7 +10,7 @@ import java.time.Duration;
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {
-    private EventoService servico;
+    private final EventoService servico;
 
     public EventoController(EventoService servico) {
         this.servico = servico;
