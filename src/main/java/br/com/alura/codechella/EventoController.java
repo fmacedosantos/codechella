@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
 @RestController
 @RequestMapping("/eventos")
 public class EventoController {
@@ -14,9 +16,15 @@ public class EventoController {
         this.servico = servico;
     }
 
-    @GetMapping(produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping
     public Flux<EventoDto> obterTodos() {
         return servico.obterTodos();
+    }
+
+    @GetMapping(value = "/categoria/{tipo}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<EventoDto> obterPorTipo(@PathVariable String tipo) {
+        return Flux.from(servico.obterPorTipo(tipo))
+                .delayElements(Duration.ofSeconds(4));
     }
 
     @GetMapping("/{id}")
